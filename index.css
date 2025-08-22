@@ -1,0 +1,347 @@
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #1e3a5f;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Main Content */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Controls */
+.controls {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#fetch-news-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#fetch-news-btn:hover {
+    background-color: #0056b3;
+}
+
+#fetch-news-btn:disabled {
+    background-color: #a0c3e6;
+    cursor: not-allowed;
+}
+
+/* Loader */
+.loader-container {
+    text-align: center;
+    padding: 2rem;
+    color: #555;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #1e3a5f;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* News & Sources Container */
+#news-container {
+    white-space: pre-wrap;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+/* Chart Containers */
+#performance-container, #mwpl-container {
+    background: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+#performance-container h2, #mwpl-container h2 {
+    margin-top: 0;
+    color: #1e3a5f;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #555;
+}
+
+.legend-color-box {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Sector Performance Legend Colors */
+.legend-color-box.current { background-color: #28a745; }
+.legend-color-box.one-week { background-color: #28a745; opacity: 0.75; }
+.legend-color-box.two-weeks { background-color: #28a745; opacity: 0.5; }
+
+/* MWPL Legend Colors */
+.legend-color-box.mwpl-current { background-color: #007bff; }
+.legend-color-box.mwpl-one-week { background-color: #007bff; opacity: 0.75; }
+.legend-color-box.mwpl-two-weeks { background-color: #007bff; opacity: 0.5; }
+
+.chart-bar-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.chart-label {
+    width: 120px;
+    flex-shrink: 0;
+    font-weight: 500;
+    padding-right: 1rem;
+    text-align: right;
+    padding-top: 4px;
+}
+
+.chart-label a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.chart-label a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.chart-bars-group {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.chart-bar-wrapper {
+    flex-grow: 1;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    height: 28px;
+    overflow: hidden;
+}
+
+.chart-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    font-weight: 500;
+    font-size: 0.85rem;
+    padding-right: 8px;
+    transition: width 0.8s ease-in-out;
+    white-space: nowrap;
+}
+
+/* Sector Chart Bar Colors */
+#performance-container .chart-bar.positive { background-color: #28a745; }
+#performance-container .chart-bar.negative { background-color: #dc3545; }
+#performance-container .chart-bar.one-week { opacity: 0.75; }
+#performance-container .chart-bar.two-weeks { opacity: 0.5; }
+
+/* MWPL Chart Bar Colors */
+#mwpl-container .chart-bar { background-color: #007bff; }
+#mwpl-container .chart-bar.one-week { opacity: 0.75; }
+#mwpl-container .chart-bar.two-weeks { opacity: 0.5; }
+
+
+#sources-container {
+    margin-top: 2rem;
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#sources-container h2 {
+    margin-top: 0;
+    color: #1e3a5f;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+#sources-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#sources-list li {
+    margin-bottom: 0.5rem;
+}
+
+#sources-list a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#sources-list a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #1e3a5f;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+    margin-top: 3rem;
+    margin-bottom: 70px; /* Add margin to avoid overlapping with install banner */
+}
+
+/* PWA Install Banner */
+#install-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #1e3a5f;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transform: translateY(100%);
+    animation: slide-up 0.5s forwards;
+}
+
+@keyframes slide-up {
+    to {
+        transform: translateY(0);
+    }
+}
+
+#install-banner p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.install-banner-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+#install-banner button {
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#install-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+#dismiss-btn {
+    background-color: transparent;
+    color: #e0e0e0;
+    border: 1px solid #e0e0e0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    main {
+        margin: 1rem auto;
+    }
+
+    .chart-label {
+        width: 100px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 0 0.5rem;
+    }
+
+    #install-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+}

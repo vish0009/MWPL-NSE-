@@ -1,0 +1,6 @@
+{
+  "name": "NSE News Tracker",
+  "description": "A web app to track news and current events affecting the NSE using the Gemini API.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
